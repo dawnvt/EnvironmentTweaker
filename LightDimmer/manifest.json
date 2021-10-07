@@ -1,7 +1,7 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
-  "id": "LightDimmer",
-  "name": "LightDimmer",
+  "id": "PlatformLightDimmer",
+  "name": "PlatformLightDimmer",
   "author": "Raine",
   "version": "0.0.1",
   "description": "Allows you to dim the lights of all platforms in 1.18",
