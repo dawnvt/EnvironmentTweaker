@@ -19,9 +19,9 @@ namespace LightDimmer.Installers
         
         public override void InstallBindings()
         {
+            Container.Bind<ModSettingsViewController>().FromNewComponentOnNewGameObject().AsSingle();
             Container.BindInstance(_config).AsSingle();
             Container.BindLoggerAsSiraLogger(_logger);
-            Container.Bind<ModSettingsViewController>().FromNewComponentOnNewGameObject().AsSingle();
         }
     }
 }
