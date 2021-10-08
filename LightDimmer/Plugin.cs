@@ -1,9 +1,11 @@
-﻿using IPA;
+﻿using BeatSaberMarkupLanguage.Settings;
+using IPA;
 using SiraUtil.Zenject;
 using IPALogger = IPA.Logging.Logger;
-using IPA.Loader;
 using LightDimmer.Configuration;
-using Config = IPA.Config.Config;
+using LightDimmer.Installers;
+using LightDimmer.UI.ViewControllers;
+using SiraUtil.Tools;
 
 namespace LightDimmer
 {
@@ -11,10 +13,21 @@ namespace LightDimmer
     public class Plugin
     {
         private PluginConfig _config;
+        private IPALogger _logger;
+        private ModSettingsViewController _settingsViewController;
 
         [Init]
-        public void Init(Zenjector zenjector, Config config, IPALogger logger, PluginMetadata pluginMetadata)
+        public void Init(Zenjector zenjector, PluginConfig config, IPALogger logger,
+            ModSettingsViewController settingsViewController)
         {
+            _config = config;
+            _logger = logger;
+            _settingsViewController = settingsViewController;
+
+
+            BSMLSettings.instance.AddSettingsMenu("LightDimmer", "LightDimmer.UI.ModSettingsView.bsml",
+                _settingsViewController);
+            zenjector.OnMenu<MenuInstaller>().WithParameters(_config);
         }
 
         [OnEnable, OnDisable]
