@@ -1,9 +1,8 @@
 ﻿using LightDimmer.Configuration;
 using LightDimmer.UI.ViewControllers;
-using SiraUtil;
-using SiraUtil.Tools;
-using Zenject;
 using IPALogger = IPA.Logging.Logger;
+using SiraUtil;
+using Zenject;
 
 namespace LightDimmer.Installers
 {
@@ -11,7 +10,7 @@ namespace LightDimmer.Installers
     {
         private readonly PluginConfig _config;
         private readonly IPALogger _logger;
-        
+
         public MenuInstaller(PluginConfig config, IPALogger logger)
         {
             _config = config;
@@ -21,10 +20,8 @@ namespace LightDimmer.Installers
         public override void InstallBindings()
         {
             Container.BindInstance(_config).AsSingle();
-            Container.BindInstance(_logger);
-            Container.BindInterfacesAndSelfTo<ModSettingsViewController>().AsSingle();
+            Container.BindLoggerAsSiraLogger(_logger);
+            Container.Bind<ModSettingsViewController>().FromNewComponentOnNewGameObject().AsSingle();
         }
     }
-
-    
 }
