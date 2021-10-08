@@ -1,4 +1,6 @@
-﻿namespace LightDimmer.Configuration
+﻿using Config = IPA.Config.Stores;
+
+namespace LightDimmer.Configuration
 {
     public class PluginConfig
     {
