@@ -1,11 +1,12 @@
 ﻿using BeatSaberMarkupLanguage.Settings;
 using IPA;
+using IPA.Config;
+using IPA.Config.Stores;
 using SiraUtil.Zenject;
-using IPALogger = IPA.Logging.Logger;
 using LightDimmer.Configuration;
 using LightDimmer.Installers;
 using LightDimmer.UI.ViewControllers;
-using SiraUtil.Tools;
+using IPALogger = IPA.Logging.Logger;
 
 namespace LightDimmer
 {
@@ -16,9 +17,9 @@ namespace LightDimmer
         private IPALogger _logger;
 
         [Init]
-        public void Init(Zenjector zenjector, PluginConfig config, IPALogger logger)
+        public void Init(Config config, Zenjector zenjector, IPALogger logger)
         {
-            _config = config;
+            _config = config.Generated<PluginConfig>();
             _logger = logger;
             
             zenjector.OnMenu<MenuInstaller>().WithParameters(_config, _logger);

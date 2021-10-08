@@ -1,5 +1,7 @@
-﻿using Config = IPA.Config.Stores;
+﻿using System.Runtime.CompilerServices;
+using Config = IPA.Config.Stores;
 
+[assembly: InternalsVisibleTo(Config.GeneratedStore.AssemblyVisibilityTarget)]
 namespace LightDimmer.Configuration
 {
     public class PluginConfig
