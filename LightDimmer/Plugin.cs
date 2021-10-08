@@ -14,20 +14,14 @@ namespace LightDimmer
     {
         private PluginConfig _config;
         private IPALogger _logger;
-        private ModSettingsViewController _settingsViewController;
 
         [Init]
-        public void Init(Zenjector zenjector, PluginConfig config, IPALogger logger,
-            ModSettingsViewController settingsViewController)
+        public void Init(Zenjector zenjector, PluginConfig config, IPALogger logger)
         {
             _config = config;
             _logger = logger;
-            _settingsViewController = settingsViewController;
-
-
-            BSMLSettings.instance.AddSettingsMenu("LightDimmer", "LightDimmer.UI.ModSettingsView.bsml",
-                _settingsViewController);
-            zenjector.OnMenu<MenuInstaller>().WithParameters(_config);
+            
+            zenjector.OnMenu<MenuInstaller>().WithParameters(_config, _logger);
         }
 
         [OnEnable, OnDisable]
