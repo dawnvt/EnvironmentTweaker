@@ -24,7 +24,7 @@ namespace LightDimmer
             _config = config.Generated<Config>();
             _logger = logger;
             
-            zenjector.OnMenu<MenuInstaller>();
+            zenjector.OnMenu<MenuInstaller>().WithParameters(_config, _logger);
         }
 
         [OnEnable, OnDisable]
