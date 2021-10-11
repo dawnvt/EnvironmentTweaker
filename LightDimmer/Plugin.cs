@@ -1,30 +1,20 @@
-﻿using BeatSaberMarkupLanguage.Settings;
-using IPA;
+﻿using IPA;
+using IPA.Config;
 using IPA.Config.Stores;
-using Config = IPA.Config.Config;
-using SiraUtil.Zenject;
-using IPALogger = IPA.Logging.Logger;
+using IPA.Logging;
 using LightDimmer.Configuration;
 using LightDimmer.Installers;
-using LightDimmer.UI.ViewControllers;
-using SiraUtil.Tools;
+using SiraUtil.Zenject;
 
 namespace LightDimmer
 {
     [Plugin(RuntimeOptions.DynamicInit)]
     public class Plugin
     {
-        private Config _config;
-        private IPALogger _logger;
-
         [Init]
-        public void Init(Zenjector zenjector, Config config, IPALogger logger)
+        public void Init(Config config, Logger logger, Zenjector zenjector)
         {
-            
-            _config = config.Generated<Config>();
-            _logger = logger;
-            
-            zenjector.OnMenu<MenuInstaller>().WithParameters(_config, _logger);
+            zenjector.OnMenu<MenuInstaller>().WithParameters(config.Generated<PluginConfig>(), logger);
         }
 
         [OnEnable, OnDisable]

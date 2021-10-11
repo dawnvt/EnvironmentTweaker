@@ -1,19 +1,17 @@
-﻿using IPA.Config;
+﻿using IPA.Logging;
 using LightDimmer.Configuration;
 using LightDimmer.UI.ViewControllers;
 using SiraUtil;
-using SiraUtil.Tools;
 using Zenject;
-using IPALogger = IPA.Logging.Logger;
 
 namespace LightDimmer.Installers
 {
-    public class MenuInstaller : Installer
+    internal class MenuInstaller : Installer<PluginConfig, Logger, MenuInstaller>
     {
-        private readonly Config _config;
-        private readonly IPALogger _logger;
+        private readonly PluginConfig _config;
+        private readonly Logger _logger;
         
-        public MenuInstaller(Config config, IPALogger logger)
+        public MenuInstaller(PluginConfig config, Logger logger)
         {
             _config = config;
             _logger = logger;
@@ -26,6 +24,4 @@ namespace LightDimmer.Installers
             Container.BindInterfacesAndSelfTo<ModSettingsViewController>().AsSingle();
         }
     }
-
-    
 }

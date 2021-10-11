@@ -1,10 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Settings;
-using IPA.Config.Data;
-using JetBrains.Annotations;
 using LightDimmer.Configuration;
 using Zenject;
 
@@ -12,7 +9,7 @@ namespace LightDimmer.UI.ViewControllers
 {
     [ViewDefinition("LightDimmer.UI.ModSettingsView.bsml")]
     [HotReload(RelativePathToLayout = @"..\UI\ModSettingsView.bsml")]
-    public class ModSettingsViewController : IInitializable, IDisposable, INotifyPropertyChanged
+    internal class ModSettingsViewController : IInitializable, IDisposable, INotifyPropertyChanged
     {
         // Public events and fields
         public event PropertyChangedEventHandler PropertyChanged;
