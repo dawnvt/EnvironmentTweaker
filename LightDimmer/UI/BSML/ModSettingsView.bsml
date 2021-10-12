@@ -1,6 +1,6 @@
 ﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'>
     <settings-container>
         <toggle-setting text="Enable Dimming" value="dimming" bind-value="true" />
-        <slider-setting text="Intensity" value="lightIntensity" bind-value="true" />
+        <slider-setting text="Intensity" value="lightIntensity" min="0.3" max="1" hover-hint="~intensityText" bind-value="true" />
     </settings-container>
 </bg>

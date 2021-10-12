@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Settings;
+using IPALogger = IPA.Logging.Logger;
 using LightDimmer.Configuration;
 using Zenject;
 
@@ -16,19 +17,23 @@ namespace LightDimmer.UI.ViewControllers
         
         // Private fields
         private readonly PluginConfig _config;
+        private readonly IPALogger _logger;
         
-        public ModSettingsViewController(PluginConfig config)
+        public ModSettingsViewController(PluginConfig config, IPALogger logger)
         {
             _config = config;
+            _logger = logger;
         }
         
         public void Initialize()
         {
-            BSMLSettings.instance.AddSettingsMenu("LightDimmer", "LightDimmer.UI.ModSettingsView.bsml", this);
+            _logger.Info("Setting up settings menu..");
+            BSMLSettings.instance.AddSettingsMenu("LightDimmer", "LightDimmer.UI.BSML.ModSettingsView.bsml", this);
         }
 
         public void Dispose()
         {
+            _logger.Info("Disposing the settings menu");
             BSMLSettings.instance.RemoveSettingsMenu(this);
         }
 
@@ -43,7 +48,7 @@ namespace LightDimmer.UI.ViewControllers
             }
         }
 
-        [UIValue("lightingIntensity")]
+        [UIValue("lightIntensity")]
         internal float LightIntensity
         {
             get => _config.Intensity;
@@ -53,5 +58,8 @@ namespace LightDimmer.UI.ViewControllers
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(LightIntensity)));
             }
         }
+
+        [UIValue("intensityText")]
+        internal string IntensityString => $"How intense you want the lights to be \n Default is 1";
     }
 }
