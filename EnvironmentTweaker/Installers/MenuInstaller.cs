@@ -1,10 +1,10 @@
 ﻿using IPA.Logging;
-using LightDimmer.Configuration;
-using LightDimmer.UI.ViewControllers;
+using EnvironmentTweaker.Configuration;
+using EnvironmentTweaker.UI.ViewControllers;
 using SiraUtil;
 using Zenject;
 
-namespace LightDimmer.Installers
+namespace EnvironmentTweaker.Installers
 {
     internal class MenuInstaller : Installer<PluginConfig, Logger, MenuInstaller>
     {

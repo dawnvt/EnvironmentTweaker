@@ -1,4 +1,4 @@
-﻿namespace LightDimmer.Installers
+﻿namespace EnvironmentTweaker.Installers
 {
     public class GameInstaller
     {

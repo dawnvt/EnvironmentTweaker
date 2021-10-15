@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{34A795F2-EE28-475F-8BB3-6896DE6FA766}") = "LightDimmer", "LightDimmer\LightDimmer.csproj", "{C3DFAD85-F052-447D-B4CC-7A753C044D6A}"
+Project("{34A795F2-EE28-475F-8BB3-6896DE6FA766}") = "EnvironmentTweaker", "EnvironmentTweaker\EnvironmentTweaker.csproj", "{C3DFAD85-F052-447D-B4CC-7A753C044D6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,11 +2,11 @@
 using IPA.Config;
 using IPA.Config.Stores;
 using IPA.Logging;
-using LightDimmer.Configuration;
-using LightDimmer.Installers;
+using EnvironmentTweaker.Configuration;
+using EnvironmentTweaker.Installers;
 using SiraUtil.Zenject;
 
-namespace LightDimmer
+namespace EnvironmentTweaker
 {
     [Plugin(RuntimeOptions.DynamicInit)]
     public class Plugin

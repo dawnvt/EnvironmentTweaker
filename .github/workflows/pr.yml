@@ -4,7 +4,7 @@ on:
     pull_request:
         branches: [ main ]
         paths:
-            - 'LightDimmer/**'
+            - 'EnvironmentTweaker/**'
             - '.github/workflows/**.yml'
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
             - name: Download Mod Dependencies
               uses: Goobwabber/download-beatmods-deps@1.2
               with:
-                  manifest: ${{github.workspace}}/LightDimmer/manifest.json
+                  manifest: ${{github.workspace}}/EnvironmentTweaker/manifest.json
             - name: Build
               id: Build
               run: dotnet build --configuration Release

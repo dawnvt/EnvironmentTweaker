@@ -3,12 +3,12 @@ using System.ComponentModel;
 using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Settings;
 using IPALogger = IPA.Logging.Logger;
-using LightDimmer.Configuration;
+using EnvironmentTweaker.Configuration;
 using Zenject;
 
-namespace LightDimmer.UI.ViewControllers
+namespace EnvironmentTweaker.UI.ViewControllers
 {
-    [ViewDefinition("LightDimmer.UI.ModSettingsView.bsml")]
+    [ViewDefinition("EnvironmentTweaker.UI.ModSettingsView.bsml")]
     [HotReload(RelativePathToLayout = @"..\UI\ModSettingsView.bsml")]
     internal class ModSettingsViewController : IInitializable, IDisposable, INotifyPropertyChanged
     {
@@ -28,7 +28,7 @@ namespace LightDimmer.UI.ViewControllers
         public void Initialize()
         {
             _logger.Info("Setting up settings menu..");
-            BSMLSettings.instance.AddSettingsMenu("LightDimmer", "LightDimmer.UI.BSML.ModSettingsView.bsml", this);
+            BSMLSettings.instance.AddSettingsMenu("EnvironmentTweaker", "EnvironmentTweaker.UI.BSML.ModSettingsView.bsml", this);
         }
 
         public void Dispose()

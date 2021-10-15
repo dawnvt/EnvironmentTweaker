@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo(IPA.Config.Stores.GeneratedStore.AssemblyVisibilityTarget)]
-namespace LightDimmer.Configuration
+namespace EnvironmentTweaker.Configuration
 {
     internal class PluginConfig
     {
