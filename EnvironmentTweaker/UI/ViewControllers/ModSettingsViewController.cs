@@ -5,6 +5,7 @@ using BeatSaberMarkupLanguage.Settings;
 using IPALogger = IPA.Logging.Logger;
 using EnvironmentTweaker.Configuration;
 using Zenject;
+using SiraUtil.Tools;
 
 namespace EnvironmentTweaker.UI.ViewControllers
 {
@@ -14,26 +15,26 @@ namespace EnvironmentTweaker.UI.ViewControllers
     {
         // Public events and fields
         public event PropertyChangedEventHandler PropertyChanged;
-        
+
         // Private fields
+        private readonly SiraLog _log;
         private readonly PluginConfig _config;
-        private readonly IPALogger _logger;
         
-        public ModSettingsViewController(PluginConfig config, IPALogger logger)
+        public ModSettingsViewController(SiraLog logger, PluginConfig config)
         {
+            _log = logger;
             _config = config;
-            _logger = logger;
         }
         
         public void Initialize()
         {
-            _logger.Info("Setting up settings menu..");
+            _log.Info("Setting up settings menu..");
             BSMLSettings.instance.AddSettingsMenu("EnvironmentTweaker", "EnvironmentTweaker.UI.BSML.ModSettingsView.bsml", this);
         }
 
         public void Dispose()
         {
-            _logger.Info("Disposing the settings menu");
+            _log.Info("Disposing the settings menu");
             BSMLSettings.instance.RemoveSettingsMenu(this);
         }
 
