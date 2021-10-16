@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using BeatSaberMarkupLanguage.Attributes;
+using BeatSaberMarkupLanguage.GameplaySetup;
 using BeatSaberMarkupLanguage.Settings;
 using IPALogger = IPA.Logging.Logger;
 using EnvironmentTweaker.Configuration;
@@ -28,14 +31,27 @@ namespace EnvironmentTweaker.UI.ViewControllers
         
         public void Initialize()
         {
-            _log.Info("Setting up settings menu..");
             BSMLSettings.instance.AddSettingsMenu("EnvironmentTweaker", "EnvironmentTweaker.UI.BSML.ModSettingsView.bsml", this);
+            if (_config.GameplaySetup)
+            {
+                GameplaySetup.instance.AddTab("EnvTweaker", "EnvironmentTweaker.UI.BSML.GameplaySetupSettingsView.bsml", this);
+            }
         }
 
         public void Dispose()
         {
-            _log.Info("Disposing the settings menu");
             BSMLSettings.instance.RemoveSettingsMenu(this);
+        }
+
+        [UIValue("gameplaySetup")]
+        internal bool GameplaySetupBool
+        {
+            get => _config.GameplaySetup;
+            set
+            {
+                _config.GameplaySetup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(GameplaySetupBool)));
+            }
         }
 
         [UIValue("dimming")]
@@ -62,5 +78,29 @@ namespace EnvironmentTweaker.UI.ViewControllers
 
         [UIValue("intensityText")]
         internal string IntensityString => $"How intense you want the lights to be \n Default is 1";
+        
+        [UIValue("gameplaysetupText")]
+        internal string GameplaySetupString => $"Install this UI to the \n gameplay setup UI";
+
+        [UIValue("isSimple")]
+        internal bool IsSimple
+        {
+            get => listChoice == "Simple";
+            set
+            {
+                IsSimple = value;
+                PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(nameof(IsSimple)));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsAdvanced)));
+            }
+        }
+        
+        [UIValue("isAdvanced")]
+        internal bool IsAdvanced => !IsSimple;
+
+        [UIValue("list-options")]
+        private List<object> options = new object[] { "Simple", "Advanced" }.ToList();
+
+        [UIValue("list-choice")]
+        private string listChoice = "Simple";
     }
 }

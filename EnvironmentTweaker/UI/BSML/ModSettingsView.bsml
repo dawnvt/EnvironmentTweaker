@@ -1,6 +1,20 @@
 ﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'>
-    <settings-container>
-        <toggle-setting text="Enable Dimming" value="dimming" bind-value="true" />
-        <slider-setting text="Intensity" value="lightIntensity" min="0.3" max="1" hover-hint="~intensityText" bind-value="true" />
-    </settings-container>
+    <vertical>
+        <vertical>
+            <toggle-setting text="Install UI to Gameplay Setup" value="gameplaySetup" hover-hint="~gameplaysetupText" bind-value="true"/>
+            <dropdown-list-setting text="Settings Type" value="list-choice" choices="list-options" bind-value="true" />
+        </vertical>
+
+        <!-- Simple tweaks -->
+        <settings-container active="~isSimple">
+            <toggle-setting text="Enable Dimming" value="dimming" bind-value="true" />
+            <slider-setting text="Intensity" value="lightIntensity" min="0.3" max="1" increment="0.1" hover-hint="~intensityText" bind-value="true" />
+        </settings-container>
+
+        <!-- Advanced tweaks -->
+        <settings-container active="~isAdvanced">
+            <toggle-setting text="Enable Light Propagation"/>
+            <increment-setting text="Light Propagation Multiplier" />
+        </settings-container>
+    </vertical>
 </bg>
