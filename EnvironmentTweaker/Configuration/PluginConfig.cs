@@ -3,7 +3,7 @@
 [assembly: InternalsVisibleTo(IPA.Config.Stores.GeneratedStore.AssemblyVisibilityTarget)]
 namespace EnvironmentTweaker.Configuration
 {
-    internal class PluginConfig
+    public class PluginConfig
     {
         // Bools
         public virtual bool Enabled { get; set; }

@@ -7,8 +7,8 @@ using BeatSaberMarkupLanguage.GameplaySetup;
 using BeatSaberMarkupLanguage.Settings;
 using IPALogger = IPA.Logging.Logger;
 using EnvironmentTweaker.Configuration;
+using SiraUtil.Logging;
 using Zenject;
-using SiraUtil.Tools;
 
 namespace EnvironmentTweaker.UI.ViewControllers
 {
@@ -32,15 +32,15 @@ namespace EnvironmentTweaker.UI.ViewControllers
         public void Initialize()
         {
             BSMLSettings.instance.AddSettingsMenu("EnvironmentTweaker", "EnvironmentTweaker.UI.BSML.ModSettingsView.bsml", this);
-            if (_config.GameplaySetup)
-            {
-                GameplaySetup.instance.AddTab("EnvTweaker", "EnvironmentTweaker.UI.BSML.GameplaySetupSettingsView.bsml", this);
-            }
         }
 
         public void Dispose()
         {
-            BSMLSettings.instance.RemoveSettingsMenu(this);
+            if (BSMLSettings.instance != null)
+            {
+                BSMLSettings.instance.RemoveSettingsMenu(this);   
+            }
+            _log.Logger.Info("Disposed of GameplaySetup and BSMLSettings UI..");
         }
 
         [UIValue("gameplaySetup")]
@@ -90,7 +90,7 @@ namespace EnvironmentTweaker.UI.ViewControllers
             {
                 IsSimple = value;
                 PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(nameof(IsSimple)));
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsAdvanced)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsAdvanced)));
             }
         }
         

@@ -6,7 +6,7 @@ namespace EnvironmentTweaker.Installers
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesTo<LightManager>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LightManager>().AsSingle();
         }
     }
 }
