@@ -19,12 +19,15 @@ namespace EnvironmentTweaker.Managers
 
         public void Initialize()
         {
-            _log.Logger.Info($"parent: {_lightWithIdManager.transform.parent.gameObject.name}");
+            var currentColorAndIntensityForCurrentLightID = _lightWithIdManager.GetColorForId(1);
+#if DEBUG
+            _log.Debug(currentColorAndIntensityForCurrentLightID);
+#endif
+            
+            
         }
 
         public void Dispose()
-        {
-            _log.Logger.Info($"unparent: {_lightWithIdManager.transform.parent.gameObject.name}");
-        }
+        { }
     }
 }

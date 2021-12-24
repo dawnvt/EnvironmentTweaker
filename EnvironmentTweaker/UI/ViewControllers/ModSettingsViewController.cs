@@ -38,9 +38,10 @@ namespace EnvironmentTweaker.UI.ViewControllers
         {
             if (BSMLSettings.instance != null)
             {
-                BSMLSettings.instance.RemoveSettingsMenu(this);   
+                BSMLSettings.instance.RemoveSettingsMenu(this);
+                _log.Logger?.Info("Disposed of Mod Settings UI..");
             }
-            _log.Logger.Info("Disposed of GameplaySetup and BSMLSettings UI..");
+            
         }
 
         [UIValue("gameplaySetup")]

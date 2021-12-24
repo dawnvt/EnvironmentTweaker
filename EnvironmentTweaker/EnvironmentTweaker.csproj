@@ -30,6 +30,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Reference Include="BeatmapCore, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Beat Saber\Beat Saber_Data\Managed\BeatmapCore.dll</HintPath>
+        </Reference>
         <Reference Include="Hive.Versioning">
           <HintPath>$(BeatSaberDir)\Libs\Hive.Versioning.dll</HintPath>
         </Reference>

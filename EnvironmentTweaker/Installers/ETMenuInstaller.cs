@@ -1,4 +1,5 @@
-﻿using EnvironmentTweaker.UI.ViewControllers;
+﻿using EnvironmentTweaker.UI;
+using EnvironmentTweaker.UI.ViewControllers;
 using Zenject;
 
 namespace EnvironmentTweaker.Installers
@@ -7,6 +8,7 @@ namespace EnvironmentTweaker.Installers
     {
         public override void InstallBindings()
         {
+            Container.BindInterfacesAndSelfTo<MenuButtonUI>().AsSingle();
             Container.BindInterfacesAndSelfTo<ModSettingsViewController>().AsSingle();
         }
     }
