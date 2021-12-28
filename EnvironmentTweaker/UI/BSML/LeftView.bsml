@@ -1,0 +1,14 @@
+﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'>
+    <horizontal pad-bottom="25">
+        <vertical>
+            <toggle-setting text="Enable Dimming" bind-value="true" />
+            <toggle-setting text="Enable Light Propagation" />
+            <slider-setting text="Light Propagation Multiplier" increment="0.5" />
+        </vertical>
+    </horizontal>
+    <horizontal bg="round-rect-panel" pad-top="45" pref-height="10" child-align="MiddleCenter">
+        <vertical child-align="MiddleLeft">
+            <text text="EnvironmentTweaker | 0.0.1" />
+        </vertical>
+    </horizontal>
+</bg>

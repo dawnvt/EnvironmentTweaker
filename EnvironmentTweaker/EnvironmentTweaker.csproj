@@ -99,8 +99,12 @@
     <ItemGroup>
         <EmbeddedResource Include="manifest.json" />
         <EmbeddedResource Include="UI\*.bsml" />
-        <None Remove="UI\BSML\ModSettingsView.bsml" />
-        <EmbeddedResource Include="UI\BSML\ModSettingsView.bsml" />
+        <None Remove="UI\BSML\LeftView.bsml" />
+        <EmbeddedResource Include="UI\BSML\LeftView.bsml" />
+        <None Remove="UI\BSML\RightView.bsml" />
+        <EmbeddedResource Include="UI\BSML\RightView.bsml" />
+        <None Remove="UI\BSML\smile.bsml" />
+        <EmbeddedResource Include="UI\BSML\smile.bsml" />
     </ItemGroup>
 
     <ItemGroup>

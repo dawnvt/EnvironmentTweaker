@@ -9,6 +9,7 @@ namespace EnvironmentTweaker.UI
 {
     public class MenuButtonUI : IInitializable, IDisposable
     {
+        private MenuButton _menuButton;
         private readonly MainFlowCoordinator _mainFlowCoordinator;
         private ETSettingsFlowCoordinator _ETFlowCoordinator;
 
@@ -16,20 +17,25 @@ namespace EnvironmentTweaker.UI
         {
             _mainFlowCoordinator = mainFlowCoordinator;
             _ETFlowCoordinator = ETFlowCoordinator;
+            _menuButton = new MenuButton("EnvironmentTweaker", "Tweak your environment!", InvokeFlowCoordinator);
         }
 
         public void Initialize()
         {
-            MenuButtons.instance.RegisterButton(new MenuButton("EnvironmentTweaker", "Tweak your environment!", InvokeFlowCoordinator)); 
+            MenuButtons.instance.RegisterButton(_menuButton); 
         }
 
         private void InvokeFlowCoordinator()
         {
-            Console.WriteLine(_ETFlowCoordinator);
             _mainFlowCoordinator.PresentFlowCoordinator(_ETFlowCoordinator);
         }
 
         public void Dispose()
-        { }
+        {
+            if (BSMLParser.IsSingletonAvailable && MenuButtons.IsSingletonAvailable)
+            {
+                MenuButtons.instance.UnregisterButton(_menuButton);
+            }
+        }
     }
 }

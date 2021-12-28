@@ -10,9 +10,11 @@ namespace EnvironmentTweaker.Installers
         public override void InstallBindings()
         {
             Container.BindInterfacesTo<MenuButtonUI>().AsSingle();
-            Container.BindInterfacesAndSelfTo<SimpleSettingsViewController>()
+            Container.BindInterfacesAndSelfTo<RightViewController>()
                 .FromNewComponentAsViewController().AsSingle();
-            Container.BindInterfacesAndSelfTo<AdvancedSettingsViewController>()
+            Container.BindInterfacesAndSelfTo<LeftViewController>()
+                .FromNewComponentAsViewController().AsSingle();
+            Container.BindInterfacesAndSelfTo<smile>()
                 .FromNewComponentAsViewController().AsSingle();
             Container.Bind<ETSettingsFlowCoordinator>().FromNewComponentOnNewGameObject().AsSingle();
 

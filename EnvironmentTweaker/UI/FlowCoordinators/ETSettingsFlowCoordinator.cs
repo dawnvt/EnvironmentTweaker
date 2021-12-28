@@ -11,16 +11,17 @@ namespace EnvironmentTweaker.UI.FlowCoordinators
     {
         private MainFlowCoordinator _mainFlowCoordinator;
         private smile _smile;
-        private SimpleSettingsViewController _simpleSettingsViewController;
-        private AdvancedSettingsViewController _advancedSettingsViewController;
+        private LeftViewController _leftViewController;
+        private RightViewController _rightViewController;
         private SiraLog _siraLog;
         
-        public void Construct(MainFlowCoordinator mainFlowCoordinator, smile smile, SimpleSettingsViewController simpleSettingsViewController, AdvancedSettingsViewController advancedSettingsViewController, SiraLog siraLog)
+        [Inject]
+        public void Construct(MainFlowCoordinator mainFlowCoordinator, smile smile, LeftViewController leftViewController, RightViewController rightViewController, SiraLog siraLog)
         {
             _mainFlowCoordinator = mainFlowCoordinator;
             _smile = smile;
-            _simpleSettingsViewController = simpleSettingsViewController;
-            _advancedSettingsViewController = advancedSettingsViewController;
+            _leftViewController = leftViewController;
+            _rightViewController = rightViewController;
             _siraLog = siraLog;
         }
 
@@ -32,7 +33,7 @@ namespace EnvironmentTweaker.UI.FlowCoordinators
                 {
                     SetTitle("EnvironmentTweaker");
                     showBackButton = true;
-                    ProvideInitialViewControllers(_smile, _advancedSettingsViewController, _simpleSettingsViewController);
+                    ProvideInitialViewControllers(_smile, _leftViewController, _rightViewController);
                 }
             }
             catch (Exception e)
