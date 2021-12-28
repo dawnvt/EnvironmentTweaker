@@ -1,37 +1,35 @@
-﻿using BeatSaberMarkupLanguage.MenuButtons;
-using System;
+﻿using System;
 using BeatSaberMarkupLanguage;
+using BeatSaberMarkupLanguage.MenuButtons;
 using EnvironmentTweaker.UI.FlowCoordinators;
+using IPALogger = IPA.Logging.Logger;
 using Zenject;
 
 namespace EnvironmentTweaker.UI
 {
     public class MenuButtonUI : IInitializable, IDisposable
     {
-        private readonly MenuButton _menuButton;
-        [Inject] private MainFlowCoordinator _mainFlowCoordinator;
-        [Inject] private SettingsFlowCoordinator _settingsFlowCoordinator;
+        private readonly MainFlowCoordinator _mainFlowCoordinator;
+        private ETSettingsFlowCoordinator _ETFlowCoordinator;
 
-        public MenuButtonUI(SettingsFlowCoordinator settingsFlowCoordinator)
+        public MenuButtonUI(MainFlowCoordinator mainFlowCoordinator, ETSettingsFlowCoordinator ETFlowCoordinator)
         {
-            _menuButton = new MenuButton("EnvironmentTweaker", "Tweak the environment!", InvokeFlowCoordinator, false);
+            _mainFlowCoordinator = mainFlowCoordinator;
+            _ETFlowCoordinator = ETFlowCoordinator;
         }
 
         public void Initialize()
         {
-            MenuButtons.instance.RegisterButton(_menuButton);
+            MenuButtons.instance.RegisterButton(new MenuButton("EnvironmentTweaker", "Tweak your environment!", InvokeFlowCoordinator)); 
         }
 
         private void InvokeFlowCoordinator()
         {
-            _mainFlowCoordinator.PresentFlowCoordinator(_settingsFlowCoordinator);
+            Console.WriteLine(_ETFlowCoordinator);
+            _mainFlowCoordinator.PresentFlowCoordinator(_ETFlowCoordinator);
         }
 
         public void Dispose()
-        {
-            if (MenuButtons.instance != null)
-                MenuButtons.instance.UnregisterButton(_menuButton);
-            _mainFlowCoordinator.DismissFlowCoordinator(_settingsFlowCoordinator);
-        }
+        { }
     }
 }

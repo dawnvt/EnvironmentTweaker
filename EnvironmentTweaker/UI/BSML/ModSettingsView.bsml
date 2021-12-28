@@ -4,21 +4,9 @@
             <toggle-setting text="Install UI to Gameplay Setup" value="gameplaySetup" hover-hint="~gameplaysetupText" bind-value="true"/>
             <dropdown-list-setting text="Settings Type" value="list-choice" choices="list-options" bind-value="true" />
         </vertical>
-
-        <!-- Simple tweaks -->
-        <vertical-scroll-indicator active="~isSimple">
-            <vertical>
-                <toggle-setting text="Enable Dimming" value="dimming" bind-value="true" />
-                <increment-setting text="Intensity" value="lightIntensity" min="0.3" max="1" increment="0.1" hover-hint="~intensityText" bind-value="true" />
-            </vertical>
-        </vertical-scroll-indicator>
-        
-        <!-- Advanced tweaks -->
-        <vertical active="~isAdvanced">
-            <vertical>
-                <toggle-setting text="Enable Light Propagation"/>
-                <increment-setting text="Light Propagation Multiplier" />
-            </vertical>
+        <vertical>
+            <toggle-setting text="Enable Light Propagation"/>
+            <increment-setting text="Light Propagation Multiplier" />
         </vertical>
     </vertical>
 </bg>

@@ -5,6 +5,7 @@ using System.Linq;
 using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.GameplaySetup;
 using BeatSaberMarkupLanguage.Settings;
+using BeatSaberMarkupLanguage.ViewControllers;
 using IPALogger = IPA.Logging.Logger;
 using EnvironmentTweaker.Configuration;
 using SiraUtil.Logging;
@@ -14,7 +15,8 @@ namespace EnvironmentTweaker.UI.ViewControllers
 {
     [ViewDefinition("EnvironmentTweaker.UI.ModSettingsView.bsml")]
     [HotReload(RelativePathToLayout = @"..\UI\ModSettingsView.bsml")]
-    internal class ModSettingsViewController : IInitializable, IDisposable, INotifyPropertyChanged
+    public class SimpleSettingsViewController : BSMLAutomaticViewController,
+        IInitializable, IDisposable, INotifyPropertyChanged
     {
         // Public events and fields
         public event PropertyChangedEventHandler PropertyChanged;
@@ -23,7 +25,7 @@ namespace EnvironmentTweaker.UI.ViewControllers
         private readonly SiraLog _log;
         private readonly PluginConfig _config;
         
-        public ModSettingsViewController(SiraLog logger, PluginConfig config)
+        public SimpleSettingsViewController(SiraLog logger, PluginConfig config)
         {
             _log = logger;
             _config = config;
@@ -81,7 +83,7 @@ namespace EnvironmentTweaker.UI.ViewControllers
         internal string IntensityString => $"How intense you want the lights to be \n Default is 1";
         
         [UIValue("gameplaysetupText")]
-        internal string GameplaySetupString => $"Install this UI to the \n gameplay setup UI";
+        internal string GameplaySetupString => $"Install UI to the \n gameplay setup UI";
 
         [UIValue("isSimple")]
         internal bool IsSimple

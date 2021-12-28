@@ -10,6 +10,7 @@ namespace EnvironmentTweaker.Managers
     {
         private readonly SiraLog _log;
         private readonly LightWithIdManager _lightWithIdManager;
+        
 
         public LightManager(LightWithIdManager lightWithIdManager, SiraLog log)
         {
@@ -18,14 +19,10 @@ namespace EnvironmentTweaker.Managers
         }
 
         public void Initialize()
-        {
-            var currentColorAndIntensityForCurrentLightID = _lightWithIdManager.GetColorForId(1);
-#if DEBUG
-            _log.Debug(currentColorAndIntensityForCurrentLightID);
-#endif
-            
-            
-        }
+        { }
+
+        private void SetNewLightIntensity()
+        { }
 
         public void Dispose()
         { }
