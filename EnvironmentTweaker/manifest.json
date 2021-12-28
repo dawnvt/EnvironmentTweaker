@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "id": "EnvironmentTweaker",
+  "name": "EnvironmentTweaker",
+  "author": "Raine",
+  "version": "0.0.1",
+  "description": "Allows you to tweak the environments of all platforms",
+  "gameVersion": "1.19.0",
+  "dependsOn": {
+    "BSIPA": "^4.2.1",
+    "BeatSaberMarkupLanguage": "^1.6.0",
+    "SiraUtil": "^3.0.2"
+  }
+}
