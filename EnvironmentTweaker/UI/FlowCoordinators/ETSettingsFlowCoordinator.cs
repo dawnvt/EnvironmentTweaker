@@ -10,13 +10,13 @@ namespace EnvironmentTweaker.UI.FlowCoordinators
     public class ETSettingsFlowCoordinator : FlowCoordinator
     {
         private MainFlowCoordinator _mainFlowCoordinator;
-        private smile _smile;
         private LeftViewController _leftViewController;
-        private RightViewController _rightViewController;
+        private FloatingChangelogViewController _rightViewController;
+        private ViewController _smile;
         private SiraLog _siraLog;
         
         [Inject]
-        public void Construct(MainFlowCoordinator mainFlowCoordinator, smile smile, LeftViewController leftViewController, RightViewController rightViewController, SiraLog siraLog)
+        public void Construct(MainFlowCoordinator mainFlowCoordinator, ViewController smile, LeftViewController leftViewController, FloatingChangelogViewController rightViewController, SiraLog siraLog)
         {
             _mainFlowCoordinator = mainFlowCoordinator;
             _smile = smile;

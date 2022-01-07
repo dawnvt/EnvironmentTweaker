@@ -25,9 +25,9 @@ namespace EnvironmentTweaker.UI.ViewControllers
         private readonly SiraLog _log;
         private readonly PluginConfig _config;
         
-        public RightViewController(SiraLog logger, PluginConfig config)
+        public RightViewController(SiraLog log, PluginConfig config)
         {
-            _log = logger;
+            _log = log;
             _config = config;
         }
         
@@ -36,5 +36,13 @@ namespace EnvironmentTweaker.UI.ViewControllers
 
         public void Dispose()
         { }
+
+        [UIValue("list")] 
+        internal List<object> ListOptions => new object[] {"Light1", "Light2", "Light3", "Light4", "Light5", "Light6"}.ToList();
+        
+        [UIValue("listOptions")] internal string listOptions => "Light1";
+
+        [UIAction("#apply")]
+        internal void OnApply() => _log.Info($"List Choice was update to: {listOptions}");
     }
 }

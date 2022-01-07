@@ -1,6 +1,8 @@
-﻿using EnvironmentTweaker.UI;
+using EnvironmentTweaker.Managers;
+using EnvironmentTweaker.UI;
 using EnvironmentTweaker.UI.FlowCoordinators;
 using EnvironmentTweaker.UI.ViewControllers;
+using HMUI;
 using Zenject;
 
 namespace EnvironmentTweaker.Installers
@@ -10,15 +12,23 @@ namespace EnvironmentTweaker.Installers
         public override void InstallBindings()
         {
             Container.BindInterfacesTo<MenuButtonUI>().AsSingle();
+            
             Container.BindInterfacesAndSelfTo<RightViewController>()
                 .FromNewComponentAsViewController().AsSingle();
+            
             Container.BindInterfacesAndSelfTo<LeftViewController>()
                 .FromNewComponentAsViewController().AsSingle();
-            Container.BindInterfacesAndSelfTo<smile>()
+            
+            Container.BindInterfacesAndSelfTo<ViewController>()
                 .FromNewComponentAsViewController().AsSingle();
-            Container.Bind<ETSettingsFlowCoordinator>().FromNewComponentOnNewGameObject().AsSingle();
+            
+            Container.BindInterfacesTo<FloatingChangelogViewController>()
+                .FromNewComponentAsViewController().AsSingle();
+            
+            Container.Bind<ETSettingsFlowCoordinator>()
+                .FromNewComponentOnNewGameObject().AsSingle();
 
-            Container.BindInterfacesTo<LightManager>().AsSingle();
+            Container.BindInterfacesTo<ETLightManager>().AsSingle();
         }
     }
 }

@@ -1,30 +1,36 @@
-﻿using SiraUtil.Tools;
-using IPALogger = IPA.Logging.Logger;
+﻿using IPALogger = IPA.Logging.Logger;
 using System;
+using EnvironmentTweaker.Utilities;
 using SiraUtil.Logging;
 using Zenject;
 
 namespace EnvironmentTweaker.Managers
 {
-    internal class LightManager : IInitializable, IDisposable
+    // TODO: Implement LightUtils.cs in ETLightManager
+    internal class ETLightManager : IInitializable, IDisposable
     {
         private readonly SiraLog _log;
-        private readonly LightWithIdManager _lightWithIdManager;
-        
+        private LightUtils _lights;
 
-        public LightManager(LightWithIdManager lightWithIdManager, SiraLog log)
+        public ETLightManager(SiraLog log, LightUtils lights)
         {
-            _lightWithIdManager = lightWithIdManager;
             _log = log;
+            _lights = lights;
         }
 
         public void Initialize()
-        { }
+        { 
+            // TODO: Implement initialization of LightManager
+        }
 
         private void SetNewLightIntensity()
-        { }
+        {
+            // TODO: ??????
+        }
 
         public void Dispose()
-        { }
+        {
+            // TODO: Implement disposal of LightManager
+        }
     }
 }

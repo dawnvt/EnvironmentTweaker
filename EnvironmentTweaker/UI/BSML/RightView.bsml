@@ -1,5 +1,7 @@
 ﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'>
-    <settings-container>
-        
-    </settings-container>
+    <vertical>
+        <horizontal pad-left="45">
+            <dropdown-list-setting text="Light" value="listOptions" choices="list" pref-width="45" hover-hint="What light do you want to tweak?"/>
+        </horizontal>
+    </vertical>
 </bg>

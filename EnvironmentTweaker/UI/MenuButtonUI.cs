@@ -17,7 +17,7 @@ namespace EnvironmentTweaker.UI
         {
             _mainFlowCoordinator = mainFlowCoordinator;
             _ETFlowCoordinator = ETFlowCoordinator;
-            _menuButton = new MenuButton("EnvironmentTweaker", "Tweak your environment!", InvokeFlowCoordinator);
+            _menuButton = new MenuButton("EnvironmentTweaker", "Tweak your environment!", InvokeMenuverseAndFlowCoordinator);
         }
 
         public void Initialize()
@@ -25,7 +25,7 @@ namespace EnvironmentTweaker.UI
             MenuButtons.instance.RegisterButton(_menuButton); 
         }
 
-        private void InvokeFlowCoordinator()
+        private void InvokeMenuverseAndFlowCoordinator()
         {
             _mainFlowCoordinator.PresentFlowCoordinator(_ETFlowCoordinator);
         }
