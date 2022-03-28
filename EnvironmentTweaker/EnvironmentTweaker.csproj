@@ -112,4 +112,8 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
     </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="EnvironmentTweaker.csproj.user" />
+    </ItemGroup>
 </Project>

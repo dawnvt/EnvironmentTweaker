@@ -34,7 +34,7 @@ namespace EnvironmentTweaker
             zenjector.UseLogger(logger);
             
             zenjector.UseHttpService();
-            zenjector.UseSiraSync(SiraSyncServiceType.GitHub, "dawnvt");
+            zenjector.UseSiraSync(SiraSyncServiceType.GitHub, "raineio");
             
             zenjector.Install<AppInstaller>(Location.App, config.Generated<PluginConfig>());
             zenjector.Install<ETMenuInstaller>(Location.Menu);

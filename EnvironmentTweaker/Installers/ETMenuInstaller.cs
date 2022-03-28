@@ -11,7 +11,7 @@ namespace EnvironmentTweaker.Installers
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesTo<MenuButtonUI>().AsSingle();
+            Container.BindInterfacesTo<MenuButtonManager>().AsSingle();
             
             Container.BindInterfacesAndSelfTo<RightViewController>()
                 .FromNewComponentAsViewController().AsSingle();
