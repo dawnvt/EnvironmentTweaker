@@ -351,3 +351,9 @@ MigrationBackup/
 
 # IDEA
 .idea
+
+# CMake
+EnvironmentTweakerNative/build/
+
+# VSCode
+.vscode/
