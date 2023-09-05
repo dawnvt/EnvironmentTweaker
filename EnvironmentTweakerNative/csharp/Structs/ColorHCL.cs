@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace EnvironmentTweakerNative;
+namespace EnvironmentTweakerNative.Structs;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct ColorHCL
