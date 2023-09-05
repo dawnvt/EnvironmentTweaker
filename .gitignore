@@ -368,3 +368,7 @@ _deps
 
 # VSCode
 .vscode/
+
+# Beat Saber Local Folder
+Refs/
+Refs
