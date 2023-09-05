@@ -1,4 +1,4 @@
-set(LIB_SRC entry.cpp)
+file(GLOB LIB_SRC "*.cpp")
 
 add_definitions(-DCPLUSPLUS)
-add_library(entry SHARED ${LIB_SRC})
+add_library(EnvironmentTweakerNative SHARED ${LIB_SRC})
