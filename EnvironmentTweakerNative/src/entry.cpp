@@ -1,4 +1,3 @@
-#include <cstdio>
 #include "entry.h"
 
 void hello_func()

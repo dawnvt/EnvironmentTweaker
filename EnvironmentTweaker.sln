@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{34A795F2-EE28-475F-8BB3-6896DE6FA766}") = "EnvironmentTweaker", "EnvironmentTweaker\EnvironmentTweaker.csproj", "{C3DFAD85-F052-447D-B4CC-7A753C044D6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnvironmentTweaker", "EnvironmentTweaker\EnvironmentTweaker.csproj", "{C3DFAD85-F052-447D-B4CC-7A753C044D6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentTweakerConsole", "EnvironmentTweakerConsole\EnvironmentTweakerConsole.csproj", "{A478050E-D3A8-401D-9B77-F4C0A5DF5D4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C3DFAD85-F052-447D-B4CC-7A753C044D6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3DFAD85-F052-447D-B4CC-7A753C044D6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3DFAD85-F052-447D-B4CC-7A753C044D6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A478050E-D3A8-401D-9B77-F4C0A5DF5D4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A478050E-D3A8-401D-9B77-F4C0A5DF5D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A478050E-D3A8-401D-9B77-F4C0A5DF5D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A478050E-D3A8-401D-9B77-F4C0A5DF5D4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
