@@ -1,7 +1,7 @@
 #ifndef ENTRY_H
 #define ENTRY_H
 #include <cstdio>
-#include "color.h"
+#include "structs/color.h"
 
 #if _MSC_VER
 #pragma warning(push)

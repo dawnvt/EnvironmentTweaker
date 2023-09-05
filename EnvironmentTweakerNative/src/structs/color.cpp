@@ -17,11 +17,25 @@ ColorHCL::ColorHCL(float h, float c, float l)
     this->l = l;
 }
 
+ColorHCL::ColorHCL()
+{
+    this->h = 0;
+    this->c = 0;
+    this->l = 0;
+}
+
 ColorRGB::ColorRGB(float r, float g, float b)
 {
     this->r = r;
     this->g = g;
     this->b = b;
+}
+
+ColorRGB::ColorRGB()
+{
+    this->r = 0;
+    this->g = 0;
+    this->b = 0;
 }
 
 ColorRGB ColorHCL::to_rgb()
@@ -95,7 +109,7 @@ ColorHCL ColorHCL::interpolate(ColorHCL other, float t)
 
     const float h = h0 + t * dh, c = c0 + t * (c1 - c0), l = l0 + t * (l1 - l0);
 
-    return ColorHCL{ h, c, l };
+    return ColorHCL{h, c, l};
 }
 
 ColorHCL ColorRGB::to_hcl()
@@ -129,5 +143,5 @@ ColorHCL ColorRGB::to_hcl()
         h = (r - g) / c + 4;
     }
 
-    return ColorHCL{ h * 60, c, l };
+    return ColorHCL{h * 60, c, l};
 }

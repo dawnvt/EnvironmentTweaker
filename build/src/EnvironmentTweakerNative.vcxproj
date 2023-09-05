@@ -306,8 +306,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="D:\EnvironmentTweaker\EnvironmentTweakerNative\src\color.cpp" />
     <ClCompile Include="D:\EnvironmentTweaker\EnvironmentTweakerNative\src\entry.cpp" />
+    <ClCompile Include="D:\EnvironmentTweaker\EnvironmentTweakerNative\src\structs\color.cpp" />
+    <ClCompile Include="D:\EnvironmentTweaker\EnvironmentTweakerNative\src\structs\lighting_node.cpp" />
+    <ClCompile Include="D:\EnvironmentTweaker\EnvironmentTweakerNative\src\structs\quaternion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\EnvironmentTweaker\build\ZERO_CHECK.vcxproj">

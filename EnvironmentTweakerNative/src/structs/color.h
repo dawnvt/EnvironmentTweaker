@@ -8,6 +8,7 @@ struct ColorHCL
 
 public:
     ColorHCL(float h, float c, float l);
+    ColorHCL();
 
     ColorRGB to_rgb();
 
@@ -22,6 +23,7 @@ struct ColorRGB
 
 public:
     ColorRGB(float r, float g, float b);
+    ColorRGB();
 
     ColorHCL to_hcl();
 };
