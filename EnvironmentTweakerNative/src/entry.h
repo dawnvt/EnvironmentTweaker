@@ -3,6 +3,10 @@
 #include <cstdio>
 #include "color.h"
 
+#if _MSC_VER
+#pragma warning(push)
+#pragma warning(disable : 4190)
+#endif
 #ifdef CPLUSPLUS
 extern "C"
 {
@@ -16,4 +20,7 @@ extern "C"
 #ifdef CPLUSPLUS
 }
 #endif
+#endif
+#if _MSC_VER
+#pragma warning(pop)
 #endif
