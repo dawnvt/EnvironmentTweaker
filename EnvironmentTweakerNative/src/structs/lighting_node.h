@@ -4,6 +4,7 @@ struct LightingNode
 {
     ColorHCL color;
     float intensity;
+    long long id;
 
 public:
     LightingNode(ColorHCL color, float intensity);

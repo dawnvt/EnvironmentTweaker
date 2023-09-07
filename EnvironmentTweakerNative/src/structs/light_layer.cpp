@@ -12,4 +12,5 @@ LightLayer::LightLayer(float time, float length, bool smooth, LightingNode *ligh
 LightLayer::~LightLayer()
 {
     delete this->lightingNode;
+    this->interpolation.clear();
 }

@@ -12,3 +12,12 @@ std::vector<T> find_items(std::vector<T> const &items, _Pr predicate)
     }
     return result;
 }
+
+template <class T, class _Pr>
+T *find_item(std::vector<T> const &items, _Pr predicate)
+{
+    auto it = std::find_if(items.begin(), items.end(), predicate);
+    if (it != items.end())
+        return it;
+    return T();
+}

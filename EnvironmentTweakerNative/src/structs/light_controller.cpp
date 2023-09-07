@@ -1,10 +1,10 @@
 #include "light_controller.h"
 #include "../overloads/linq.h"
 
-LightController::LightController()
+LightController::LightController(int lightId)
 {
     this->layerCount = 0;
-    this->lightId = 0;
+    this->lightId = lightId;
     this->layers = std::vector<LightLayer>();
 }
 
@@ -51,4 +51,5 @@ LightingNode LightController::get_lighting_node(float time)
 
         it++;
     }
+    return lightingNode;
 }
