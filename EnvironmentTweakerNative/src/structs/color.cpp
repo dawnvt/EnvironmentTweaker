@@ -10,7 +10,7 @@ ColorHCL::ColorHCL(float h, float c, float l)
     }
     while (h > 360)
     {
-        h -= 360;
+        h = static_cast<int>(h) % 360;
     }
     this->h = h;
     this->c = c;
@@ -26,9 +26,10 @@ ColorHCL::ColorHCL()
 
 ColorRGB::ColorRGB(float r, float g, float b)
 {
-    this->r = r;
-    this->g = g;
-    this->b = b;
+    const double pow = std::pow(10, 4);
+    this->r = static_cast<int>(r * pow) / pow;
+    this->g = static_cast<int>(g * pow) / pow;
+    this->b = static_cast<int>(b * pow) / pow;
 }
 
 ColorRGB::ColorRGB()

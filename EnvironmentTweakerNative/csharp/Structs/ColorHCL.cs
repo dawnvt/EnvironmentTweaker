@@ -27,3 +27,17 @@ public struct ColorRGB
         return $"R: {R}, G: {G}, B: {B}";
     }
 }
+
+[StructLayout(LayoutKind.Sequential)]
+public struct ColorARGB
+{
+    public float A;
+    public float R;
+    public float G;
+    public float B;
+
+    public override string ToString()
+    {
+        return $"R: {R}, G: {G}, B: {B}, A: {A}";
+    }
+}

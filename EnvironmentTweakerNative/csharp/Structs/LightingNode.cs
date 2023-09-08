@@ -5,6 +5,19 @@ namespace EnvironmentTweakerNative.Structs;
 [StructLayout(LayoutKind.Sequential)]
 struct LightingNode
 {
-    ColorHCL color;
-    float intensity;
+    public ColorARGB color;
+    public int lightId;
+}
+
+[StructLayout(LayoutKind.Sequential)]
+struct Interpolation
+{
+    float time;
+    float value;
+
+    public Interpolation(float time, float value)
+    {
+        this.time = time;
+        this.value = value;
+    }
 }

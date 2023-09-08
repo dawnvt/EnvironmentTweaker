@@ -23,19 +23,20 @@ int EnvironmentController::add_lighting_node(LightingNode lightingNode)
 {
     lightingNode.id = this->lightingNodes.size() + 1;
     this->lightingNodes.push_back(lightingNode);
+    return lightingNode.id;
 };
 
 void EnvironmentController::add_lighting_layer(long long nodeId, int lightId, float time, float length, bool smooth, std::map<float, float> interpolation)
 {
-    auto lightNode = find_item(this->lightingNodes, [nodeId](const LightingNode &lightingNode)
+    auto lightNode = find_item(this->lightingNodes, [nodeId](const LightingNode lightingNode)
                                { return lightingNode.id == nodeId; });
     if (lightNode->id != 0)
     {
-        auto lightController = find_item(this->lightControllers, [lightId](const LightController &lightController)
+        auto lightController = find_item(this->lightControllers, [lightId](const LightController lightController)
                                          { return lightController.lightId == lightId; });
         if (lightController->lightId != 0)
         {
-            lightController->add_layer(time, length, smooth, lightNode, interpolation);
+            lightController->add_layer(time, length, smooth, nodeId, interpolation);
         }
         else
         {
@@ -50,12 +51,11 @@ void EnvironmentController::add_lighting_layer(long long nodeId, int lightId, fl
 
 std::map<int, LightingNode> EnvironmentController::get_lighting_nodes(float time)
 {
-    auto it = this->lightControllers.begin();
+    auto length = this->lightControllers.size();
     std::map<int, LightingNode> lightingNodes;
-    while (it != this->lightControllers.end())
+    for (int i = 0; i < length; i++)
     {
-        lightingNodes[it->lightId] = it->get_lighting_node(time);
-        it++;
+        lightingNodes[this->lightControllers[i].lightId] = this->lightControllers[i].get_lighting_node(time, this->lightingNodes);
     }
     return lightingNodes;
 };

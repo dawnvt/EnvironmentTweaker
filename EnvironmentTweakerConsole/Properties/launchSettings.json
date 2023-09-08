@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EnvironmentTweakerConsole": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
