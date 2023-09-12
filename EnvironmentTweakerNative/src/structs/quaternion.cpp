@@ -1,12 +1,20 @@
 #include "quaternion.h"
 #include <cmath>
 
-Quaternion::Quaternion(float w, float x, float y, float z)
+Quaternion::Quaternion(float x, float y, float z, float w)
 {
-    this->w = w;
     this->x = x;
     this->y = y;
     this->z = z;
+    this->w = w;
+}
+
+Quaternion::Quaternion()
+{
+    this->w = 1;
+    this->x = 0;
+    this->y = 0;
+    this->z = 0;
 }
 
 Quaternion Quaternion::interpolate(Quaternion other, float t)
