@@ -51,8 +51,8 @@ Quaternion Quaternion::interpolate(Quaternion other, float t)
     }
 
     return Quaternion(
-        w1 * k0 + w2 * k1,
         x1 * k0 + x2 * k1,
         y1 * k0 + y2 * k1,
-        z1 * k0 + z2 * k1);
+        z1 * k0 + z2 * k1,
+        w1 * k0 + w2 * k1);
 }
